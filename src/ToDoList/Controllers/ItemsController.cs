@@ -11,6 +11,7 @@ namespace ToDoList.Controllers
     public class ItemsController : Controller
     {
         private ToDoListContext db = new ToDoListContext();
+
         public IActionResult Index()
         {
             return View(db.Items.ToList());
@@ -27,7 +28,7 @@ namespace ToDoList.Controllers
         }
 
         [HttpPost]
-        public IActionResult create (Item item)
+        public IActionResult Create(Item item)
         {
             db.Items.Add(item);
             db.SaveChanges();
